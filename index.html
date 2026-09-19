@@ -21,6 +21,7 @@
       </a>
       <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-menu"><span></span><span></span><span></span><b class="sr-only">Menu</b></button>
       <nav class="site-nav" id="site-menu" aria-label="Primary navigation">
+        <a href="#electronics">Electronics Store</a>
         <a href="#catalogue">Catalogue</a>
         <a href="#services">Services</a>
         <a href="#coverage">Coverage</a>
@@ -50,7 +51,7 @@
           <div class="signal-card signal-bottom"><span class="signal-icon">+</span><span><strong>Trade support</strong><small>From source to destination</small></span></div>
         </div>
       </div>
-      <div class="hero-ticker" aria-label="Available trade verticals"><div class="container ticker-inner"><span>COMMODITIES</span><i></i><span>MACHINERY</span><i></i><span>FREIGHT</span><i></i><span>PROCUREMENT</span><i></i><span>WEST AFRICA</span></div></div>
+      <div class="hero-ticker" aria-label="Available trade verticals"><div class="container ticker-inner"><span>ELECTRONICS</span><i></i><span>COMMODITIES</span><i></i><span>MACHINERY</span><i></i><span>FREIGHT</span><i></i><span>WEST AFRICA</span></div></div>
     </section>
 
     <section class="intro section-pad">
@@ -60,9 +61,36 @@
       </div>
     </section>
 
+    <section class="electronics section-pad" id="electronics">
+      <div class="container">
+        <div class="section-heading store-heading">
+          <div><p class="section-kicker">02 / Electronics store</p><h2>Practical technology. Local support.</h2></div>
+          <div class="store-heading-actions"><span class="section-note">Pricing and availability are confirmed before order.</span><button class="basket-button" id="basket-open" type="button" aria-controls="basket" aria-expanded="false">Quote basket <strong id="basket-count">0</strong></button></div>
+        </div>
+        <div class="store-benefits" aria-label="Store benefits"><span><b>01</b> Product guidance</span><span><b>02</b> Sierra Leone delivery</span><span><b>03</b> WhatsApp ordering</span></div>
+        <div class="shop-tabs" role="tablist" aria-label="Electronics categories">
+          <button class="shop-tab is-active" type="button" role="tab" aria-selected="true" data-shop-filter="all">All electronics</button>
+          <button class="shop-tab" type="button" role="tab" aria-selected="false" data-shop-filter="power">Power &amp; solar</button>
+          <button class="shop-tab" type="button" role="tab" aria-selected="false" data-shop-filter="security">Security</button>
+          <button class="shop-tab" type="button" role="tab" aria-selected="false" data-shop-filter="audio">Audio</button>
+          <button class="shop-tab" type="button" role="tab" aria-selected="false" data-shop-filter="components">Components</button>
+        </div>
+        <div class="shop-grid">
+          <article class="shop-card" data-shop-category="power" data-product="Rechargeable Solar Work Light"><div class="shop-visual visual-solar"><span>POWER / 01</span><b aria-hidden="true">☀</b></div><div class="shop-copy"><span class="shop-category">Power &amp; solar</span><h3>Rechargeable Solar Work Light</h3><p>Portable lighting for homes, workshops, stalls and outdoor work.</p><div class="shop-meta"><strong>Price on request</strong><span>Availability confirmed</span></div><button class="add-quote" type="button">Add to quote</button></div></article>
+          <article class="shop-card" data-shop-category="power" data-product="USB Power Bank"><div class="shop-visual visual-power"><span>POWER / 02</span><b aria-hidden="true">⌁</b></div><div class="shop-copy"><span class="shop-category">Power &amp; solar</span><h3>USB Power Bank</h3><p>Portable backup power for phones, lights and compatible USB devices.</p><div class="shop-meta"><strong>Price on request</strong><span>Availability confirmed</span></div><button class="add-quote" type="button">Add to quote</button></div></article>
+          <article class="shop-card" data-shop-category="security" data-product="Laser Tripwire Alarm Kit"><div class="shop-visual visual-security"><span>SECURITY / 03</span><b aria-hidden="true">◎</b></div><div class="shop-copy"><span class="shop-category">Security</span><h3>Laser Tripwire Alarm Kit</h3><p>A compact alert system concept for entrances, shops and demonstration projects.</p><div class="shop-meta"><strong>Price on request</strong><span>Coming soon</span></div><button class="add-quote" type="button">Add to quote</button></div></article>
+          <article class="shop-card" data-shop-category="security" data-product="Smart Security Camera"><div class="shop-visual visual-camera"><span>SECURITY / 04</span><b aria-hidden="true">◉</b></div><div class="shop-copy"><span class="shop-category">Security</span><h3>Smart Security Camera</h3><p>Connected monitoring options for homes and small business premises.</p><div class="shop-meta"><strong>Price on request</strong><span>Availability confirmed</span></div><button class="add-quote" type="button">Add to quote</button></div></article>
+          <article class="shop-card" data-shop-category="audio" data-product="Portable Bluetooth Speaker"><div class="shop-visual visual-audio"><span>AUDIO / 05</span><b aria-hidden="true">♪</b></div><div class="shop-copy"><span class="shop-category">Audio</span><h3>Portable Bluetooth Speaker</h3><p>Rechargeable wireless audio for everyday listening and small events.</p><div class="shop-meta"><strong>Price on request</strong><span>Availability confirmed</span></div><button class="add-quote" type="button">Add to quote</button></div></article>
+          <article class="shop-card" data-shop-category="components" data-product="DIY Electronics Starter Kit"><div class="shop-visual visual-components"><span>COMPONENTS / 06</span><b aria-hidden="true">⚡</b></div><div class="shop-copy"><span class="shop-category">Components</span><h3>DIY Electronics Starter Kit</h3><p>Essential components for learning, prototyping and practical repair projects.</p><div class="shop-meta"><strong>Price on request</strong><span>Coming soon</span></div><button class="add-quote" type="button">Add to quote</button></div></article>
+        </div>
+      </div>
+    </section>
+
+    <aside class="basket" id="basket" aria-hidden="true" aria-label="Quote basket"><div class="basket-panel"><div class="basket-top"><div><span>Electronics order</span><h2>Your quote basket</h2></div><button id="basket-close" type="button" aria-label="Close quote basket">×</button></div><div class="basket-items" id="basket-items"><p class="basket-empty">Your basket is empty. Add products to prepare a WhatsApp order request.</p></div><div class="basket-actions"><button class="button button-primary" id="basket-checkout" type="button" disabled>Request quote on WhatsApp <span aria-hidden="true">↗</span></button><button class="basket-clear" id="basket-clear" type="button">Clear basket</button><p>This sends an enquiry only. Pricing and availability will be confirmed before purchase.</p></div></div></aside>
+
     <section class="catalogue section-pad" id="catalogue">
       <div class="container">
-        <div class="section-heading"><div><p class="section-kicker">02 / Trade catalogue</p><h2>Source with a clearer view.</h2></div><span class="section-note">Availability is confirmed per enquiry.<br>Products coming soon are marked.</span></div>
+        <div class="section-heading"><div><p class="section-kicker">03 / Trade catalogue</p><h2>Source with a clearer view.</h2></div><span class="section-note">Availability is confirmed per enquiry.<br>Products coming soon are marked.</span></div>
         <div class="category-tabs" role="tablist" aria-label="Product categories">
           <button class="category-tab is-active" type="button" role="tab" aria-selected="true" data-filter="all">All categories</button>
           <button class="category-tab" type="button" role="tab" aria-selected="false" data-filter="commodities">Commodities</button>

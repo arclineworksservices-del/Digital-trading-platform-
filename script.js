@@ -50,3 +50,82 @@ enquiryForm?.addEventListener('submit', (event) => {
 });
 
 document.querySelector('#year').textContent = new Date().getFullYear();
+
+const shopTabs = document.querySelectorAll('.shop-tab');
+const shopCards = document.querySelectorAll('.shop-card');
+const quoteBasket = [];
+const basket = document.querySelector('#basket');
+const basketItems = document.querySelector('#basket-items');
+const basketCount = document.querySelector('#basket-count');
+const basketOpen = document.querySelector('#basket-open');
+const basketClose = document.querySelector('#basket-close');
+const basketCheckout = document.querySelector('#basket-checkout');
+
+shopTabs.forEach((tab) => {
+  tab.addEventListener('click', () => {
+    const filter = tab.dataset.shopFilter;
+    shopTabs.forEach((item) => {
+      const active = item === tab;
+      item.classList.toggle('is-active', active);
+      item.setAttribute('aria-selected', String(active));
+    });
+    shopCards.forEach((card) => {
+      card.classList.toggle('is-hidden', filter !== 'all' && card.dataset.shopCategory !== filter);
+    });
+  });
+});
+
+function setBasket(open) {
+  basket.classList.toggle('is-open', open);
+  basket.setAttribute('aria-hidden', String(!open));
+  basketOpen.setAttribute('aria-expanded', String(open));
+  document.body.style.overflow = open ? 'hidden' : '';
+}
+
+function renderBasket() {
+  basketCount.textContent = quoteBasket.length;
+  basketCheckout.disabled = quoteBasket.length === 0;
+  document.querySelectorAll('.shop-card').forEach((card) => {
+    const added = quoteBasket.includes(card.dataset.product);
+    const button = card.querySelector('.add-quote');
+    button.classList.toggle('is-added', added);
+    button.textContent = added ? 'Added to quote' : 'Add to quote';
+  });
+  if (!quoteBasket.length) {
+    basketItems.innerHTML = '<p class="basket-empty">Your basket is empty. Add products to prepare a WhatsApp order request.</p>';
+    return;
+  }
+  basketItems.innerHTML = quoteBasket.map((product, index) => `<div class="basket-row"><span>${product}</span><button type="button" data-remove="${index}">Remove</button></div>`).join('');
+  basketItems.querySelectorAll('[data-remove]').forEach((button) => {
+    button.addEventListener('click', () => {
+      quoteBasket.splice(Number(button.dataset.remove), 1);
+      renderBasket();
+    });
+  });
+}
+
+document.querySelectorAll('.add-quote').forEach((button) => {
+  button.addEventListener('click', () => {
+    const product = button.closest('.shop-card').dataset.product;
+    if (!quoteBasket.includes(product)) quoteBasket.push(product);
+    renderBasket();
+    setBasket(true);
+  });
+});
+
+basketOpen?.addEventListener('click', () => setBasket(true));
+basketClose?.addEventListener('click', () => setBasket(false));
+basket?.addEventListener('click', (event) => {
+  if (event.target === basket) setBasket(false);
+});
+document.querySelector('#basket-clear')?.addEventListener('click', () => {
+  quoteBasket.splice(0, quoteBasket.length);
+  renderBasket();
+});
+basketCheckout?.addEventListener('click', () => {
+  const products = quoteBasket.map((product, index) => `${index + 1}. ${product}`).join('\n');
+  const message = `Hello Selenity, I would like a price and availability quote for:\n\n${products}\n\nPlease confirm the total price and delivery options.`;
+  window.open(`https://wa.me/23276666665?text=${encodeURIComponent(message)}`, '_blank', 'noopener');
+});
+
+renderBasket();

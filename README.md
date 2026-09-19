@@ -1,32 +1,27 @@
-# Python Agent Scaffold
+# Selenity Trading and Logistics
 
-This repository contains a basic Python agent scaffold that supports registering functions and invoking them via a simple HTTP API.
+The digital trade platform of the Selenity ecosystem.
 
-Branch: feature/python-agent (created after initial commit)
+This repository contains the static website for **Selenity Trading and Logistics**: a catalogue and trade enquiry front door for commodities, machinery, procurement, freight, customs clearance, warehousing and distribution.
 
-What I will add on the feature/python-agent branch:
+## Run locally
 
-- agent/registry.py — function registry and decorator
-- agent/functions.py — example functions (calculate_trade, fetch_market_data)
-- agent/server.py — FastAPI app exposing endpoints to list and invoke functions
-- agent/cli.py — a small CLI to invoke functions locally
-- requirements.txt — dependencies
-- tests/test_registry.py — unit tests for registry
-- tests/test_server.py — integration tests for the FastAPI app
-- .gitignore
+No build step or package installation is required. From the repository root:
 
-How to run (after switching to the branch and installing deps):
+```sh
+python3 -m http.server 4173
+```
 
-1. python -m venv .venv
-2. source .venv/bin/activate  # or .venv\Scripts\activate on Windows
-3. pip install -r requirements.txt
-4. uvicorn agent.server:app --reload
+Open `http://localhost:4173` in a browser.
 
-Invoke example:
+## GitHub Pages
 
-POST http://localhost:8000/invoke
-Body:
-{
-  "name": "calculate_trade",
-  "args": {"quantity": 10, "entry": 100.0, "exit": 110.0, "side": "long"}
-}
+The site is plain HTML, CSS and JavaScript and can be deployed directly from the repository root using GitHub Pages. The target domain is `shop.selenitytrading.com`. A `CNAME` file is intentionally not included yet.
+
+## Enquiries
+
+The catalogue does not claim confirmed stock, prices, certifications or partnerships. Items marked **Products coming soon** require an enquiry. The enquiry form prepares a WhatsApp message for the user to review and send to [Selenity on WhatsApp](https://wa.me/23276666665).
+
+Phone: **+232 76 666665**
+
+This site does not include shipment tracking, crypto, forex, securities trading, online payments or simulated orders and transactions.

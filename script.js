@@ -89,7 +89,7 @@ function renderBasket() {
     const added = quoteBasket.includes(card.dataset.product);
     const button = card.querySelector('.add-quote');
     button.classList.toggle('is-added', added);
-    button.textContent = added ? 'Added to quote' : 'Add to quote';
+    button.textContent = added ? 'Added to quote' : (button.dataset.defaultLabel || 'Add to quote');
   });
   if (!quoteBasket.length) {
     basketItems.innerHTML = '<p class="basket-empty">Your basket is empty. Add products to prepare a WhatsApp order request.</p>';
@@ -105,6 +105,7 @@ function renderBasket() {
 }
 
 document.querySelectorAll('.add-quote').forEach((button) => {
+  button.dataset.defaultLabel = button.textContent.trim();
   button.addEventListener('click', () => {
     const product = button.closest('.shop-card').dataset.product;
     if (!quoteBasket.includes(product)) quoteBasket.push(product);

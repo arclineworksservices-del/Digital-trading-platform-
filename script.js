@@ -17,6 +17,24 @@ siteMenu?.querySelectorAll('a').forEach((link) => {
 const categoryTabs = document.querySelectorAll('.category-tab');
 const productCards = document.querySelectorAll('.product-card');
 
+const grocerySkus = new Map([
+  ['Ask Spaghetti – 500g', 'STL-FG-001'],
+  ['Kalem Makarna (Penne Rigatte) – 500g', 'STL-FG-002'],
+  ['Tel Şehriye (Vermicelli)', 'STL-FG-003'],
+]);
+
+productCards.forEach((card) => {
+  const productName = card.querySelector('h3')?.textContent.trim();
+  const sku = grocerySkus.get(productName);
+  if (!sku) return;
+
+  card.dataset.sku = sku;
+  const productType = card.querySelector('.product-type');
+  const availability = card.querySelector('.status-available');
+  if (productType) productType.textContent = `WhatsApp catalogue · SKU ${sku}`;
+  if (availability) availability.textContent = 'Confirm stock';
+});
+
 categoryTabs.forEach((tab) => {
   tab.addEventListener('click', () => {
     const filter = tab.dataset.filter;

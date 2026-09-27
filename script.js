@@ -21,6 +21,7 @@ const grocerySkus = new Map([
   ['Ask Spaghetti – 500g', 'STL-FG-001'],
   ['Kalem Makarna (Penne Rigatte) – 500g', 'STL-FG-002'],
   ['Tel Şehriye (Vermicelli)', 'STL-FG-003'],
+  ['Ask Risoni (Arpa Şehriye) – 500g', 'STL-FG-004'],
 ]);
 
 productCards.forEach((card) => {

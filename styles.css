@@ -78,3 +78,17 @@ body{background:var(--paper)}
   .section-heading h2{font-size:38px}
 }
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;animation:none!important;transition:none!important}}
+
+/* Accounts Foundation preview — informational only until secure authentication is deployed */
+.accounts-preview{background:#fff}
+.accounts-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:9%;align-items:center}
+.accounts-copy h2{font-size:clamp(36px,5vw,58px);line-height:1.05;margin-bottom:22px}
+.accounts-copy>p:not(.section-kicker){color:var(--muted);max-width:520px}
+.accounts-status{display:inline-flex;margin-top:16px;padding:9px 12px;border-radius:999px;background:#ffeadc;color:#924500;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.07em}
+.account-role-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.account-role-grid article{min-height:250px;padding:30px;border:1px solid var(--line);border-radius:14px;background:linear-gradient(155deg,#0a1525,#111f33);color:#fff;box-shadow:0 16px 40px rgba(13,25,42,.12)}
+.account-role-grid article>span{color:var(--orange);font-size:10px;font-weight:700;letter-spacing:.16em}
+.account-role-grid h3{font-size:27px;margin:48px 0 13px}
+.account-role-grid p{color:#aeb9c8;font-size:13px;margin:0}
+@media(max-width:800px){.accounts-grid{grid-template-columns:1fr;gap:34px}.account-role-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:520px){.account-role-grid{grid-template-columns:1fr}.account-role-grid article{min-height:210px}.account-role-grid h3{margin-top:35px}}
